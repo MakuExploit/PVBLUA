@@ -153,7 +153,7 @@ task.delay(7.5, function()
             msg1:Destroy()
             -- Execute your custom loader first
             -- Then execute the 3in1 script
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/Yohohoho/refs/heads/main/Heheheha"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/TitePVB/refs/heads/main/DigBick"))()
         end)
     end)
 end)
