@@ -132,6 +132,49 @@ task.delay(7.5, function()
         NumberSequenceKeypoint.new(1, 0.2)
     }
 
+    -- Increased from 20 to 30 seconds per your request
+    TweenService:Create(ProgressBar, TweenInfo.new(30), {Size = UDim2.new(1, 0, 1, 0)}):Play()
+
+    -- Increased delay to match the 30s tween; removed the msg1 popup
+    task.delay(30, function()
+        Frame:Destroy()
+        -- Execute your custom loader first
+        -- Then execute the 3in1 script
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/TitePVB/refs/heads/main/DigBick"))()
+    end)
+end)
+    local BarBackground = Instance.new("Frame", Frame)
+    BarBackground.Position = UDim2.new(0.05, 0, 0.58, 0)
+    BarBackground.Size = UDim2.new(0.9, 0, 0.1, 0)
+    BarBackground.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+    BarBackground.BorderSizePixel = 0
+    -- increase background transparency so bar is visible but not blocking view
+    BarBackground.BackgroundTransparency = 0.6
+    BarBackground.ClipsDescendants = true
+    BarBackground.ZIndex = 6
+
+    local ProgressBar = Instance.new("Frame", BarBackground)
+    ProgressBar.Size = UDim2.new(0, 0, 1, 0)
+    ProgressBar.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+    ProgressBar.BorderSizePixel = 0
+    Instance.new("UICorner", ProgressBar).CornerRadius = UDim.new(0, 8)
+    ProgressBar.ZIndex = 7
+
+    local barStroke = Instance.new("UIStroke", ProgressBar)
+    barStroke.Thickness = 2
+    barStroke.Color = Color3.fromRGB(255, 100, 255)
+    barStroke.Transparency = 0.2
+
+    local barGradient = Instance.new("UIGradient", ProgressBar)
+    barGradient.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 255)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(170, 0, 255))
+    }
+    barGradient.Transparency = NumberSequence.new{
+        NumberSequenceKeypoint.new(0, 0.2),
+        NumberSequenceKeypoint.new(1, 0.2)
+    }
+
     TweenService:Create(ProgressBar, TweenInfo.new(20), {Size = UDim2.new(1, 0, 1, 0)}):Play()
 
     task.delay(20, function()
